@@ -42,9 +42,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <p>
                         <i class="fas fa-envelope me-3"></i>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=suropriyo@gmail.com" target="_blank"
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=suropriyoenterprise@gmail.com" target="_blank"
                             class="text-reset text-decoration-none">
-                            suropriyo@gmail.com
+                            suropriyoenterprise@gmail.com
                         </a>
                     </p>
 
