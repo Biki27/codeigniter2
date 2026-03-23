@@ -1206,7 +1206,7 @@ class Employee extends CI_Controller
                 $this->db->where('sejoba_id', $applicant_id);
                 $this->db->update('sejobapplicant', ['sejoba_state' => 'interviewing']);
 
-                $this->session->set_flashdata('msg', 'Interview Invitation Sent & Status marked as Pending.');
+                $this->session->set_flashdata('msg', 'Interview Invitation Sent & Status marked as interviewing.');
             } else {
                 $this->session->set_flashdata('error', 'Interview saved to database but email failed to send.');
             }
