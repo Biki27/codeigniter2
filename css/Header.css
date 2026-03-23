@@ -7,8 +7,6 @@
 /* 1. Reset HTML globally and lock horizontal scroll */
 html {
     scroll-behavior: smooth;
-  
- 
 }
  
 body {
@@ -18,7 +16,7 @@ body {
     overflow-x: hidden;
    
 	/* From your Header.css */
-background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(6, 5, 82, 1) 7%, rgba(9, 9, 121, 1) 21%, rgba(4, 130, 201, 1) 56%, rgba(0, 212, 255, 1) 89%) !important;
+	background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(6, 5, 82, 1) 7%, rgba(9, 9, 121, 1) 21%, rgba(4, 130, 201, 1) 56%, rgba(0, 212, 255, 1) 89%) !important;
 
     color: #ffffff !important;
     font-family: "Inter", system-ui, -apple-system, sans-serif;

@@ -1,9 +1,11 @@
 .main-content {
-	margin-left: 260px;
-	padding: 30px;
+	
+	/* margin-left: 260px;
+	padding: 30px; */
 	min-height: 100vh;
 	background: #0f0f23;
 	margin-bottom: 30px;
+	 
 }
 
 .welcome {

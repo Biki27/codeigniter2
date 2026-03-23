@@ -292,7 +292,7 @@
                         <span class="premium-skill-tag">Collaboration & Security</span>
                     </div>
 
-                    <a href="<?= base_url() ?>welcome/Contactus#contactform" class="btn-premium-primary">
+                    <a href="<?= base_url() ?>Contactus#contactForm" class="btn-premium-primary">
                         <i class="fas fa-code me-2"></i> Hire Expert
                     </a>
                 </div>

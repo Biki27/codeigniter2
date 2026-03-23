@@ -801,7 +801,7 @@ class Employee extends CI_Controller
 
             $this->load->view('employee/employeeHeaderView');
             $this->load->view('employee/employeeOverView', $data);
-            $this->load->view('employee/employeeFooterView');
+            // $this->load->view('employee/employeeFooterView');
 
         } else {
 

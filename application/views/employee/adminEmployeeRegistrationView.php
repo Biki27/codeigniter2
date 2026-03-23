@@ -235,9 +235,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </form>
     </div>
-    <div class="footer">
-        © 2026 Suropriyo Enterprise. All rights reserved.
-    </div>
+     
 
     <script>
         // Photo preview logic with size validation

@@ -342,7 +342,7 @@
                 
                 <div class="col-lg-7">
                     <h1 class="hero-title">Surajit Das</h1>
-                    <h2 class="hero-subtitle">Founder & CEO</h2>
+                    <h2 class="hero-subtitle">Founder </h2>
                     <p class="hero-description">
                         Principal Architect of Scalable Enterprise Solutions with over a decade of experience building robust, high-availability systems for global businesses.
                     </p>
@@ -351,7 +351,7 @@
                         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=suropriyo@gmail.com" target="_blank" class="btn-premium-primary">
                             <i class="fas fa-envelope me-2"></i> Let's Connect
                         </a>
-                        <a href="<?= base_url() ?>Contactus#contactform" class="btn-premium-outline">
+                        <a href="<?= base_url() ?>Contactus#contactForm" class="btn-premium-outline">
                             <i class="fas fa-comments me-2"></i> Contact Us
                         </a>
                     </div>

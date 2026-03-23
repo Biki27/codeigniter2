@@ -6,7 +6,7 @@
     <img id="banner" src="<?= base_url(); ?>assets/banner_technologices.png" alt="Technologies Banner" class="img-fluid w-100 object-fit-cover" style="max-height: 400px; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);">
 </div>
 
-<section class="py-5 bg-light-soft" style="position: relative; z-index: 2;">
+<!-- <section class="py-5 bg-light-soft" style="position: relative; z-index: 2;">
     <div class="container pt-4">
         <h2 class="section-title">Our Technologies</h2>
         <div class="row g-4 justify-content-center mt-4">
@@ -52,7 +52,7 @@
 
         </div>
     </div>
-</section>
+</section> -->
 
 <section class="team-wrapper py-5">
     <div class="container py-5">
@@ -106,8 +106,8 @@
     <div class="row g-5 align-items-stretch">
         
         <div class="col-lg-6">
-            <div class="premium-contact-box p-4 p-md-5 h-100">
-                <h3 class="mb-4 form-title">Get in Touch</h3>
+            <div class="premium-contact-box p-4 p-md-5 h-100" id="contactForm">
+                <h3 class="mb-4 form-title"  >Get in Touch</h3>
                 <?= form_open("ContactUs") ?>
                     <div class="mb-4">
                         <label class="form-label premium-label">Name</label>

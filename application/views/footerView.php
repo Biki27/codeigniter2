@@ -3,7 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <link rel="stylesheet" href="<?= base_url(); ?>css/Footer.css">
 <footer class="text-center text-lg-start text-muted">
-    <section class="footer5 d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- <section class="footer5 d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
         <div class="me-5 d-none d-lg-block">
             <span class="c-name">Get connected with us on social networks:</span>
         </div>
@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <a href="#" class="me-4 text-reset text-decoration-none"><i class="fab fa-linkedin-in"></i></a>
             <a href="#" class="me-4 text-reset text-decoration-none"><i class="fab fa-instagram"></i></a>
         </div>
-    </section>
+    </section> -->
     <section class="footer2">
         <div class="text-center text-md-start mt-5">
             <div class="row mt-3">

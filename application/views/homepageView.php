@@ -10,340 +10,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <style>
-        /* =========================================
-           GLOBAL RESETS (Overrides Header.css)
-           ========================================= */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif !important;
-            background-color: #F8FAFC !important;
-            color: #475569 !important;
-            padding-top: 0px !important; /* Navbar gap fix */
-            overflow-x: hidden !important; /* Horizontal scroll lock */
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* --- Section Titles --- */
-        .section-title {
-            font-weight: 800;
-            color: #0F172A;
-            position: relative;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-            font-size: clamp(2rem, 5vw, 2.8rem);
-            letter-spacing: -0.5px;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: #2563eb;
-            border-radius: 2px;
-        }
-
-        .section-subtitle {
-            font-size: 1.15rem;
-            color: #64748B;
-            max-width: 700px;
-            margin: 0 auto 50px;
-            line-height: 1.7;
-        }
-
-        /* =========================================
-           HERO SECTION (Transparent over Three.js)
-           ========================================= */
-        .hero-section {
-            /* We leave the background transparent so the Three.js canvas shows through */
-            position: relative;
-            padding: 200px 0 180px; 
-            color: white;
-            text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 10; /* Stays above the 3D canvas */
-        }
-
-        .hero-title {
-            font-size: clamp(2.8rem, 6vw, 4.5rem);
-            font-weight: 800;
-            letter-spacing: -1.5px;
-            margin-bottom: 25px;
-            line-height: 1.2;
-            color: #FFFFFF;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .hero-description {
-            font-size: 1.25rem;
-            color: #94A3B8;
-            max-width: 700px;
-            margin: 0 auto 40px;
-            line-height: 1.8;
-            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-
-        /* --- Buttons --- */
-        .btn-premium-primary {
-            background: #FFFFFF !important;
-            color: #2563eb !important;
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .btn-premium-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-            color: #1d4ed8 !important;
-        }
-
-        .btn-premium-outline {
-            background: transparent;
-            color: #FFFFFF !important;
-            border: 2px solid rgba(255,255,255,0.3);
-            padding: 14px 40px;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-        }
-
-        .btn-premium-outline:hover {
-            background: rgba(255,255,255,0.1);
-            border-color: #FFFFFF;
-            transform: translateY(-3px);
-        }
-
-        /* =========================================
-           FLOATING STATS SECTION
-           ========================================= */
-        .stats-section {
-            background: #F8FAFC;
-            position: relative;
-            z-index: 10;
-        }
-
-        .stats-wrapper {
-            margin-top: -80px; /* Pulls cards up over the hero background */
-            margin-bottom: 60px;
-        }
-
-        .premium-stat-card {
-            background: #FFFFFF;
-            padding: 35px 20px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 15px 35px -5px rgba(15, 23, 42, 0.08);
-            border: 1px solid #E2E8F0;
-            border-bottom: 4px solid #2563eb; 
-            transition: transform 0.3s ease;
-            height: 100%;
-        }
-
-        .premium-stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-number {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 800;
-            color: #0F172A;
-            margin-bottom: 5px;
-            letter-spacing: -1px;
-        }
-
-        .stat-label {
-            color: #64748B;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* =========================================
-           PREMIUM CARDS (Services & AI)
-           ========================================= */
-        .content-section {
-            background: #F8FAFC;
-            padding: 60px 0;
-            position: relative;
-            z-index: 10;
-        }
-
-        .bg-white-section {
-            background: #FFFFFF;
-        }
-
-        .premium-feature-card {
-            background: #FFFFFF;
-            border-radius: 24px;
-            padding: 40px 30px;
-            box-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.05);
-            border: 1px solid #E2E8F0;
-            border-top: 5px solid #2563eb; 
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            height: 100%;
-            text-align: center;
-        }
-
-        .premium-feature-card.alt {
-            background: #F8FAFC; /* Subtle contrast for alternating sections */
-        }
-
-        .premium-feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -12px rgba(37, 99, 235, 0.15);
-        }
-
-        .feature-icon-wrapper {
-            width: 70px;
-            height: 70px;
-            background: rgba(37, 99, 235, 0.08);
-            color: #2563eb;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.8rem;
-            margin: 0 auto 25px;
-            border: 1px solid rgba(37, 99, 235, 0.1);
-        }
-
-        .premium-feature-card h3 {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: #0F172A;
-            margin-bottom: 15px;
-            letter-spacing: -0.5px;
-        }
-
-        .premium-feature-card p {
-            color: #64748B;
-            line-height: 1.7;
-            margin: 0;
-            font-size: 0.95rem;
-        }
-
-        /* =========================================
-           TRUST / CLIENTS SECTION
-           ========================================= */
-        .trust-section {
-            background: #FFFFFF;
-            padding: 80px 0;
-            position: relative;
-            z-index: 10;
-            border-top: 1px solid #E2E8F0;
-        }
-
-        .client-logo {
-            max-width: 120px;
-            height: auto;
-            filter: grayscale(1) opacity(0.5);
-            transition: all 0.3s ease;
-        }
-
-        .client-logo:hover {
-            filter: grayscale(0) opacity(1);
-            transform: scale(1.05);
-        }
-
-        /* =========================================
-           FINAL CTA SECTION
-           ========================================= */
-        .premium-cta-section {
-            background: #2563eb;
-            color: white;
-            text-align: center;
-            padding: 80px 40px;
-            border-radius: 32px;
-            margin: 40px 0 80px; 
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 20px 40px -10px rgba(37, 99, 235, 0.3);
-            z-index: 10;
-        }
-
-        .premium-cta-section::after {
-            content: '';
-            position: absolute;
-            top: 0; right: 0; bottom: 0; left: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.08'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-            opacity: 0.5;
-            pointer-events: none;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .cta-title {
-            font-size: clamp(2rem, 4vw, 2.8rem);
-            font-weight: 800;
-            margin-bottom: 20px;
-            color: #FFFFFF;
-            letter-spacing: -0.5px;
-        }
-
-        .cta-description {
-            font-size: 1.15rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 35px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* =========================================
-           MOBILE RESPONSIVENESS
-           ========================================= */
-        @media (max-width: 991px) {
-            .hero-section { padding: 140px 0 140px; }
-            .stats-wrapper { margin-top: -60px; }
-            .btn-premium-primary, .btn-premium-outline {
-                width: 100%;
-                justify-content: center;
-                margin-bottom: 15px;
-            }
-        }
-        @media (max-width: 768px) {
-            .premium-stat-card { margin-bottom: 20px; }
-            .content-section { padding: 50px 0; }
-            .premium-cta-section {
-                padding: 60px 20px;
-                border-radius: 20px;
-                margin: 20px 15px 60px;
-            }
-            .client-logo { margin-bottom: 30px; }
-        }
-    </style>
+	<link rel="stylesheet" href="<?= base_url(); ?>css/Home.css">
+     
 </head>
 
 <body>
@@ -357,10 +25,10 @@
                         We design and build high-performance websites, mobile applications, and scalable software systems. From idea to deployment — we deliver reliable digital infrastructure tailored to your business.
                     </p>
                     <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                        <a href="<?= base_url() ?>ContactUs" class="btn-premium-primary">
+                        <a href="<?= base_url() ?>ContactUs#contactForm" class="btn-premium-primary">
                             Start Your Project
                         </a>
-                        <a href="<?= base_url() ?>Services" class="btn-premium-outline">
+                        <a href="<?= base_url() ?>Services#ourServices" class="btn-premium-outline">
                             Explore Services
                         </a>
                     </div>
@@ -380,19 +48,19 @@
                 </div>
                 <div class="col-6 col-lg-3">
                     <div class="premium-stat-card">
-                        <div class="stat-number text-success">99.9%</div>
+                        <div class="stat-number" style="color: #0ea5e9;">99.9%</div>
                         <div class="stat-label">System Uptime</div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3">
                     <div class="premium-stat-card">
-                        <div class="stat-number text-warning">60%</div>
+                        <div class="stat-number text-primary">60%</div>
                         <div class="stat-label">Faster Deployment</div>
                     </div>
                 </div>
                 <div class="col-6 col-lg-3">
                     <div class="premium-stat-card">
-                        <div class="stat-number text-info">24/7</div>
+                        <div class="stat-number" style="color: #0ea5e9;">24/7</div>
                         <div class="stat-label">Support Active</div>
                     </div>
                 </div>
@@ -490,10 +158,10 @@
                 <h2 class="cta-title">Let’s Build Something Powerful</h2>
                 <p class="cta-description">Whether you're launching a new idea or upgrading your existing systems, we deliver scalable, high-quality digital solutions designed for long-term success.</p>
                 <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center">
-                    <a href="<?= base_url() ?>ContactUs" class="btn-premium-primary" style="color: #2563eb !important;">
+                    <a href="<?= base_url() ?>ContactUs#contactForm" class="btn-premium-primary" style="color: #2563eb !important;">
                         Get Free Consultation
                     </a>
-                    <a href="<?= base_url() ?>Services" class="btn-premium-outline">
+                    <a href="<?= base_url() ?>AboutUs#solutions" class="btn-premium-outline">
                         View Our Work
                     </a>
                 </div>
@@ -507,42 +175,43 @@
     <script>
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false }); // Alpha false so we can set our own background color
+        
+        // 1. ALPHA IS TRUE: This makes the 3D canvas transparent like glass!
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); 
         
         renderer.setSize(window.innerWidth, window.innerHeight);
-        // Set the background to match our Premium Deep Navy (#0F172A)
-        renderer.setClearColor(0x0F172A, 1);
-        
         renderer.domElement.style.position = 'fixed';
         renderer.domElement.style.top = '0';
         renderer.domElement.style.left = '0';
-        renderer.domElement.style.zIndex = '-1';
+        renderer.domElement.style.zIndex = '1'; /* Places it inside the hero section */
         renderer.domElement.style.pointerEvents = 'none';
-        document.body.appendChild(renderer.domElement);
+        
+        // Target specifically the hero section so it doesn't bleed down the page
+        document.querySelector('.hero-section').appendChild(renderer.domElement);
 
-        // Updated Materials to match the Brand Blue (#2563eb) and Soft Blue (#60A5FA)
+        // 2. YOUR ORIGINAL CYAN/DEEP BLUE MATERIALS
         const nodeMaterial = new THREE.MeshStandardMaterial({
-            color: 0x2563eb,
-            emissive: 0x1e3a8a,
+            color: 0x090979,
+            emissive: 0x020024,
             metalness: 0.8,
             roughness: 0.2
         });
         const connectorMaterial = new THREE.MeshStandardMaterial({
-            color: 0x60A5FA,
-            emissive: 0x3b82f6,
+            color: 0x00d4ff,
+            emissive: 0x0482c9,
             transparent: true,
-            opacity: 0.6,
+            opacity: 0.8,
             metalness: 0.9,
             roughness: 0.1
         });
         const wireframeMaterial = new THREE.MeshBasicMaterial({
-            color: 0x3b82f6,
+            color: 0x00d4ff,
             wireframe: true,
             transparent: true,
-            opacity: 0.2
+            opacity: 0.3
         });
 
-        // Particle system for flowing effect
+        // 3. YOUR ORIGINAL PARTICLES
         const particleCount = 500;
         const particles = new THREE.BufferGeometry();
         const positions = new Float32Array(particleCount * 3);
@@ -551,14 +220,13 @@
             positions[i * 3] = (Math.random() - 0.5) * 20;
             positions[i * 3 + 1] = (Math.random() - 0.5) * 20;
             positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
-            // Shifted particle colors to blue/white spectrum
-            colors[i * 3] = Math.random() * 0.3 + 0.3; // R
-            colors[i * 3 + 1] = Math.random() * 0.4 + 0.6; // G
-            colors[i * 3 + 2] = 1; // B
+            colors[i * 3] = Math.random() * 0.5 + 0.5;
+            colors[i * 3 + 1] = Math.random() * 0.5 + 0.5;
+            colors[i * 3 + 2] = 1;
         }
         particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
         particles.setAttribute('color', new THREE.BufferAttribute(colors, 3));
-        const particleMaterial = new THREE.PointsMaterial({ size: 0.05, vertexColors: true, transparent: true, opacity: 0.4 });
+        const particleMaterial = new THREE.PointsMaterial({ size: 0.05, vertexColors: true, transparent: true, opacity: 0.6 });
         const particleSystem = new THREE.Points(particles, particleMaterial);
         scene.add(particleSystem);
 
@@ -662,16 +330,16 @@
         createCluster('octahedron', 1.2, new THREE.Vector3(3, -1, 0));
         createCluster('icosahedron', 0.9, new THREE.Vector3(6, 0, 0));
 
-        // Upgraded Lighting for Navy Background
+        // 4. YOUR ORIGINAL LIGHTING
         nodes.forEach((node, i) => {
-            const lightColor = i % 2 === 0 ? 0x3b82f6 : 0x60A5FA;
-            const light = new THREE.PointLight(lightColor, 0.5, 4);
+            const lightColor = i % 3 === 0 ? 0x00d4ff : i % 3 === 1 ? 0x090979 : 0x0482c9;
+            const light = new THREE.PointLight(lightColor, 0.7, 4);
             light.position.copy(node.position);
             scene.add(light);
         });
-        const ambientLight = new THREE.AmbientLight(0x0F172A, 1.5);
+        const ambientLight = new THREE.AmbientLight(0x060552, 0.4);
         scene.add(ambientLight);
-        const directionalLight = new THREE.DirectionalLight(0x60A5FA, 0.8);
+        const directionalLight = new THREE.DirectionalLight(0x00d4ff, 0.6);
         directionalLight.position.set(5, 5, 5);
         scene.add(directionalLight);
 
@@ -697,7 +365,7 @@
             particleSystem.geometry.attributes.position.needsUpdate = true;
 
             connectors.forEach((conn, i) => {
-                conn.material.emissiveIntensity = 0.5 + 0.3 * Math.sin(Date.now() * 0.0008 + i * 0.5);
+                conn.material.emissiveIntensity = 0.7 + 0.3 * Math.sin(Date.now() * 0.0008 + i * 0.5);
             });
             renderer.render(scene, camera);
         }

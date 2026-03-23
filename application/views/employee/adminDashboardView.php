@@ -73,18 +73,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 onclick="window.location.href='<?= base_url('index.php/Employee/viewProjects?status=completed') ?>'">
                 View Details
               </button>
-
             </div>
           </div>
-        </div>
-
-        
-      </div>
-
-       
-
-      <div class="footer">
-        © 2026 Suropriyo Enterprise. All rights reserved.
+        </div>      
       </div>
 
 </body>

@@ -37,15 +37,15 @@
     <section class="container mt-n5 position-relative" style="z-index: 10;">
         <div class="premium-quote-card text-center p-4 p-md-5 mx-auto shadow-lg">
             <h2 class="text-primary fw-bold mb-3">What We Do</h2>
-            <p class="lead text-secondary mb-0" style="font-size: 1.1rem; line-height: 1.8;">
+            <p class="lead text-secondary mb-0" style="font-size: 1.1rem; line-height: 1.8; text-style:bold">
                 We provide comprehensive digital solutions that empower organizations to achieve sustainable growth and operational excellence. Our services are designed to align with business objectives, leveraging technology, strategy, and innovation to deliver measurable results.
             </p>
         </div>
     </section>
 
     <section id="services-grid" class="services-section py-5 bg-light-soft">
-        <div class="container py-5">
-            <div class="text-center mb-5">
+        <div class="container py-5" id="ourServices">
+            <div class="text-center mb-5" >
                 <h2 class="section-title">Our Services</h2>
             </div>
             

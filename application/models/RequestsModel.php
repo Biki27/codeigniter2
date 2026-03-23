@@ -20,32 +20,33 @@ class RequestsModel extends CI_Model
 
     }
 
-    function addRequest($formdata = [])
-    {
-        $days = (new DateTime($formdata['startdate']))
-            ->diff(new DateTime($formdata['enddate']))
-            ->days;
+   function addRequest($formdata = [])
+{
+    $start = new DateTime($formdata['startdate']);
+    $end = new DateTime($formdata['enddate']);
+    
+    // .diff() gives the absolute difference. 
+    // Adding +1 makes the range inclusive (e.g., 23rd to 24th = 2 days)
+    $interval = $start->diff($end);
+    $days = $interval->days + 1; 
 
-        $info = array(
-            // 'seemrq_id' => '',
-            'seemrq_empid' => $this->session->userdata('empid'),
-            'seemrq_reason' => $formdata['reason'],
-            'seemrq_summary' => $formdata['summary'],
-            'seemrq_reqdate' => date('Y-m-d'),
-            'seemrq_fromdate' => $formdata['startdate'],
-            'seemrq_todate' => $formdata['enddate'],
-            'seemrq_days' => $days,
-            // 'seemrq_status' => '',
-        );
+    $info = array(
+        'seemrq_empid'   => $this->session->userdata('empid'),
+        'seemrq_reason'  => $formdata['reason'],
+        'seemrq_summary' => $formdata['summary'],
+        'seemrq_reqdate' => date('Y-m-d'),
+        'seemrq_fromdate' => $formdata['startdate'],
+        'seemrq_todate'   => $formdata['enddate'],
+        'seemrq_days'     => $days,
+        'seemrq_status'   => 'pending' // Good practice to explicitly set default
+    );
 
-        $this->db->trans_start();
-        $this->db->insert('seemprequests', $info);
-        $this->db->trans_complete();
+    $this->db->trans_start();
+    $this->db->insert('seemprequests', $info);
+    $this->db->trans_complete();
 
-        $issucess = $this->db->error();
-
-        return $issucess;
-    }
+    return $this->db->error();
+}
 
     function updateRequest($requestid = '', $empid = '', $status = 'pending')
     {

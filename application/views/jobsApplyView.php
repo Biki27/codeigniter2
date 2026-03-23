@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
     <div class="row mb-4">
         <div class="col-12">
-            <a href="<?= base_url('welcome/Jobs') ?>"
+            <a href="<?= base_url('Careers/Jobs') ?>"
                 class="text-decoration-none text-secondary fw-semibold back-btn d-inline-flex align-items-center">
                 <i class="fas fa-arrow-left me-2"></i> Back to job View
             </a>
