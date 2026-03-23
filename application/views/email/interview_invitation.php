@@ -63,6 +63,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             </table>
 
                             <p>
+                                Please carry your updated CV with an attached photo. If you have prior work experience,
+                                kindly bring your salary slips for the last 3 months or bank transaction history
+                            </p>
+                            <p>
                                 Please arrive at least <strong>10 minutes before</strong> the scheduled time.
                             </p>
 
@@ -72,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                             <p>
                                 Best Regards,<br>
-                                <strong>HR Team</strong><br>
+                                <?= htmlspecialchars($hr_name) ?><br>
                                 Suropriyo Enterprise
                             </p>
 
@@ -81,10 +85,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <!-- Footer -->
                     <tr>
-                        <td align="center" style="background:#1f2937;color:#9ca3af;padding:25px;">
-                            <p style="margin:0;">
-                                Suropriyo Enterprise<br>
-                                Howrah, West Bengal
+                        <td align="center"
+                            style="background-color:#1f2937;padding:35px 30px;color:#9ca3af;text-align:center;">
+                            <p style="font-size:14px;margin:0 0 20px 0;line-height:1.5;">
+                                <strong>Suropriyo Enterprise</strong><br>
+                                Kolkata, West Bengal, India
+                            </p>
+                            <p style="font-size:13px;margin:0;">
+                                <a href="https://suropriyo.in"
+                                    style="color:#9ca3af;text-decoration:none;margin:0 10px;">www.suropriyo.in</a><br>
+                                <a href="tel:+91 80176 69102"
+                                    style="color:#9ca3af;text-decoration:none;margin:0 10px;">+91 80176 69102</a><br>
+                                <a href="tel:+91 80176 69102"
+                                    style="color:#9ca3af;text-decoration:none;margin:0 10px;">+91 87772 70124 </a>
                             </p>
                         </td>
                     </tr>
