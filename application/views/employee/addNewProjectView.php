@@ -36,7 +36,7 @@
             </div>
 
             <!-- FORM TAG STARTS HERE - WRAPS EVERYTHING -->
-            <form id="projectForm" method="post" action="<?= base_url('index.php/Employee/addProject') ?>">
+            <form id="projectForm" method="post" action="<?= base_url('Employee/addProject') ?>">
 
                 <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>"
                     value="<?= $this->security->get_csrf_hash(); ?>">
@@ -111,13 +111,13 @@
 
                 <!-- Action Buttons - NOW INSIDE FORM -->
                 <div class="action-buttons">
-                    <button type="submit" id="addBtn" formaction="<?= base_url('index.php/Employee/addProject') ?>"
+                    <button type="submit" id="addBtn" formaction="<?= base_url('Employee/addProject') ?>"
                         class="btn btn-primary">
                         <i class="fas fa-plus me-2"></i>Add Project
                     </button>
 
                     <button type="submit" id="updateBtn"
-                        formaction="<?= base_url('index.php/Employee/updateProject') ?>" class="btn btn-success d-none">
+                        formaction="<?= base_url('Employee/updateProject') ?>" class="btn btn-success d-none">
                         <i class="fas fa-edit me-2"></i>Update Project
                     </button>
 
@@ -159,7 +159,7 @@
             const csrfName = "<?= $this->security->get_csrf_token_name(); ?>";
             const csrfHash = "<?= $this->security->get_csrf_hash(); ?>";
 
-            fetch("<?= base_url('index.php/Employee/fetchProject') ?>", {
+            fetch("<?= base_url('Employee/fetchProject') ?>", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/x-www-form-urlencoded"

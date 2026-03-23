@@ -16,7 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container">
         <a class="navbar-brand fw-bold" href="#"><i class="fas fa-building"></i> Supropriyo Enterprise - ESS
             Portal</a>
-        <a href="<?= base_url() ?>index.php/Employee/Logout" class="btn btn-outline-light ms-auto"><i
+        <a href="<?= base_url() ?>Employee/Logout" class="btn btn-outline-light ms-auto"><i
                 class="fas fa-sign-out-alt"></i>
             Logout</a>
     </div>
@@ -28,7 +28,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="col-12">
             <h1 id="employeeName" class="mb-4 text-primary"><i class="fas fa-user-tie"></i> Welcome <?= $this->session->userdata('empname'); ?>,</h1>
             <div class="d-flex justify-content-between mb-5 flex-wrap">
-                <a  href="<?= base_url() ?>index.php/Employee/ChangePassword" class="btn btn-warning mb-2" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                <a  href="<?= base_url() ?>Employee/ChangePassword" class="btn btn-warning mb-2" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
                     <i class="fas fa-key"></i> Change Password
                 </a>
             </div>

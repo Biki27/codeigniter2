@@ -140,7 +140,7 @@
         <?= form_close() ?>
 
         <div class="table-section">
-            <h2 class="table-title">Today's Attendance Records</h2>
+            <h2 class="table-title">Attendance Records</h2>
             <table class="table-custom">
                 <thead>
                     <tr>
@@ -253,7 +253,7 @@
         }
 
         function logout() {
-            if (confirm('Are you sure you want to logout?')) window.location.href = 'index.html';
+            if (confirm('Are you sure you want to logout?')) window.location.href = 'Employee/login';
         }
 
         function prevMonth() { alert('Previous month functionality'); }
