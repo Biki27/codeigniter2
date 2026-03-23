@@ -13,6 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="<?= base_url('css/admin/adminProjectsView.css') ?>" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -101,7 +102,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                             </span>
                                         </td>
 
-                                        <td><strong><?= $proj->seproj_name ?></strong></td>
+                                        <td class="fw-bold text-dark">
+                                            <?= $proj->seproj_name ?>
+
+                                            <div class="mt-1">
+                                                <a href="javascript:void(0)" class="text-primary small text-decoration-none"
+                                                    onclick='viewProjectDetails(<?= htmlspecialchars(json_encode($proj), ENT_QUOTES, "UTF-8") ?>)'>
+
+                                                    <i class="fas fa-info-circle"></i> view details
+                                                </a>
+                                            </div>
+                                        </td>
 
                                         <td><?= $proj->seproj_desc ?></td>
 
@@ -169,73 +180,108 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             });
         </script>
+    </div>
+    <!-- Project Details Modal -->
+    <div class="modal fade" id="viewProjectModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content" style="border-radius:20px;">
 
-        <!-- <div class="modal fade" id="addProjectModal">
-            <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title fw-bold text-primary" id="projectTitle"></h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
 
-                    <div class="modal-header">
-                        <h5 class="modal-title">Add New Project</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                <div class="modal-body">
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Project ID:</strong>
+                            <div id="projectId"></div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <strong>Status:</strong>
+                            <div id="projectStatus"></div>
+                        </div>
                     </div>
 
-                    <form method="post" action="<?= base_url('index.php/Employee/viewProject') ?>">
-
-                        <div class="modal-body">
-
-                            <div class="mb-3">
-                                <label>Project Name</label>
-                                <input type="text" name="name" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label>Description</label>
-                                <textarea name="desc" class="form-control"></textarea>
-                            </div>
-
-                            <div class="mb-3">
-                                <label>Start Date</label>
-                                <input type="date" name="date" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label>Deadline</label>
-                                <input type="date" name="deadline" class="form-control" required>
-                            </div>
-
-                            <div class="mb-3">
-                                <label>Client ID</label>
-                                <input type="text" name="clientid" class="form-control">
-                            </div>
-
-                            <div class="mb-3">
-                                <label>Project Head</label>
-                                <input type="text" name="headid" class="form-control">
-                            </div>
-
-                            <div class="mb-3">
-                                <label>Price</label>
-                                <input type="text" name="price" class="form-control">
-                            </div>
-
-                            <div class="mb-3">
-                                <label>Status</label>
-                                <select name="status" class="form-control">
-                                    <option value="pending">Pending</option>
-                                    <option value="running">Running</option>
-                                    <option value="completed">Completed</option>
-                                </select>
-                            </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <strong>Start Date:</strong>
+                            <div id="projectStart"></div>
                         </div>
 
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-success">Save Project</button>
+                        <div class="col-md-6">
+                            <strong>Deadline:</strong>
+                            <div id="projectDeadline"></div>
                         </div>
-                    </form>
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Client:</strong>
+                        <div id="projectClient"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Project Head:</strong>
+                        <div id="projectHead"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <strong>Price:</strong>
+                        <div id="projectPrice"></div>
+                    </div>
+
+                    <div>
+                        <strong>Description:</strong>
+                        <div id="projectDesc" class="p-3 bg-light rounded mt-2"></div>
+                    </div>
 
                 </div>
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                </div>
+
             </div>
-        </div> -->
+        </div>
+    </div>
+    <script>
+        function viewProjectDetails(project) {
+
+            document.getElementById('projectTitle').innerText = project.seproj_name;
+
+            document.getElementById('projectId').innerHTML =
+                `<span class="badge bg-primary">PJ${String(project.seproj_id).padStart(2, '0')}</span>`;
+
+            document.getElementById('projectStart').innerText = project.seproj_date;
+            document.getElementById('projectDeadline').innerText = project.seproj_deadline;
+            document.getElementById('projectClient').innerText = project.seproj_clientid;
+            document.getElementById('projectHead').innerText = project.seproj_headid;
+            document.getElementById('projectPrice').innerText = "₹" + project.seproj_price;
+            document.getElementById('projectDesc').innerText = project.seproj_desc;
+
+            // Status badge
+            let statusHTML = '';
+
+            if (project.seproj_status === 'running') {
+                statusHTML = `<span class="badge bg-success">Running</span>`;
+            } else if (project.seproj_status === 'completed') {
+                statusHTML = `<span class="badge bg-warning text-dark">Completed</span>`;
+            } else {
+                statusHTML = `<span class="badge bg-primary">Pending</span>`;
+            }
+
+            document.getElementById('projectStatus').innerHTML = statusHTML;
+
+            // Bootstrap 5 Modal initialization
+            var modal = new bootstrap.Modal(document.getElementById('viewProjectModal'));
+            modal.show();
+        }
+    </script>
+
 </body>
 
 </html>
