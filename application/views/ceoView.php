@@ -351,7 +351,7 @@
                         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=suropriyo@gmail.com" target="_blank" class="btn-premium-primary">
                             <i class="fas fa-envelope me-2"></i> Let's Connect
                         </a>
-                        <a href="<?= base_url() ?>welcome/Contactus#contactform" class="btn-premium-outline">
+                        <a href="<?= base_url() ?>Contactus#contactform" class="btn-premium-outline">
                             <i class="fas fa-comments me-2"></i> Contact Us
                         </a>
                     </div>

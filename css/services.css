@@ -419,6 +419,7 @@ figure h1 {
 }
 
 @media (max-width: 768px) {
+    /* fix navbar spacig*/
     .hero-banner, .new-section {
         margin: 20px 10px;
         padding: 40px 20px;

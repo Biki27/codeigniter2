@@ -36,8 +36,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							business.
 						</p>
 						<div>
-							<a href="<?= base_url() ?>welcome/ContactUs" class="hero-cta">Start Your Project</a>
-							<a href="<?= base_url() ?>welcome/Services" class="hero-cta">Explore Services</a>
+							<a href="<?= base_url() ?>ContactUs" class="hero-cta">Start Your Project</a>
+							<a href="<?= base_url() ?>Services" class="hero-cta">Explore Services</a>
 						</div>
 					</div>
 				</div>
@@ -225,8 +225,8 @@ From corporate platforms to complex systems, we deliver reliable solutions.</p> 
 			</p>
 			<div class="row justify-content-center">
 				<div class="col-lg-5 col-md-8">
-					<a href="<?= base_url() ?>welcome/ContactUs" class="cta-btn">Get Free Consultation</a>
-					<a href="<?= base_url() ?>welcome/Services" class="cta-btn cta-btn-outline">View Our Work</a>
+					<a href="<?= base_url() ?>ContactUs" class="cta-btn">Get Free Consultation</a>
+					<a href="<?= base_url() ?>Services" class="cta-btn cta-btn-outline">View Our Work</a>
 				</div>
 			</div>
 		</div>

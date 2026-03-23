@@ -24,11 +24,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                     <h6 class="text-uppercase fw-bold mb-4">Explore</h6>
-                    <p><a href="<?= base_url('welcome/AboutUs') ?>" class="text-reset text-decoration-none">About Us</a>
+                    <p><a href="<?= base_url('AboutUs') ?>" class="text-reset text-decoration-none">About Us</a>
                     </p>
-                    <p><a href="<?= base_url('welcome/Services') ?>"
+                    <p><a href="<?= base_url('Services') ?>"
                             class="text-reset text-decoration-none">Services</a></p>
-                    <p><a href="<?= base_url('welcome/Careers') ?>" class="text-reset text-decoration-none">Contact</a>
+                    <p><a href="<?= base_url('Careers') ?>" class="text-reset text-decoration-none">Careers</a>
                     </p>
                 </div>
                 <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">

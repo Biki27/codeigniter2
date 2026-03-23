@@ -16,9 +16,9 @@
                 <p class="hero-subtitle text-white-50">Seize the future.</p>
                 
                 <div class="cta-container">
-                    <a href="<?= base_url() ?>welcome/Jobs" class="cta-btn text-white">Explore Opportunities</a>
+                    <a href="<?= base_url() ?>Careers/Jobs" class="cta-btn text-white">Explore Opportunities</a>
                     <div>
-                        <a href="<?= base_url() ?>welcome/Jobs" class="fas arrow-btn fa-arrow-right text-decoration-none"></a>
+                        <a href="<?= base_url() ?>Careers/Jobs" class="fas arrow-btn fa-arrow-right text-white text-decoration-none"></a>
                     </div>
                 </div>
             </div>
@@ -112,7 +112,7 @@
                                 <span class="skill-badge"><i class="fas fa-check-circle"></i> Agile Methodology</span>
                             </div>
                             
-                            <a href='<?= base_url() ?>welcome/Jobs' class="btn btn-primary btn-premium">Apply Now &rarr;</a>
+                            <a href='<?= base_url() ?>Careers/Jobs' class="btn btn-primary btn-premium">Apply Now &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@
                         <div class="col-md-7">
                             <h3 class="fw-bold mb-3 text-dark">App Development</h3>
                             <p class="lead mb-4 text-secondary fs-6">Design and develop user-centric mobile and web applications with a strong focus on performance and usability.</p>
-                            <a href='<?= base_url() ?>welcome/Jobs' class="btn btn-primary btn-premium">Apply Now &rarr;</a>
+                            <a href='<?= base_url() ?>Careers/Jobs' class="btn btn-primary btn-premium">Apply Now &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                         <div class="col-md-7">
                             <h3 class="fw-bold mb-3 text-dark">Secure Maintenance</h3>
                             <p class="lead mb-4 text-secondary fs-6">Gain hands-on experience in maintaining, securing, and optimizing live production systems.</p>
-                            <a href='<?= base_url() ?>welcome/Jobs' class="btn btn-primary btn-premium">Apply Now &rarr;</a>
+                            <a href='<?= base_url() ?>Careers/Jobs' class="btn btn-primary btn-premium">Apply Now &rarr;</a>
                         </div>
                     </div>
                 </div>
@@ -157,7 +157,7 @@
                         <div class="col-md-7">
                             <h3 class="fw-bold mb-3 text-dark">Hosting & Infrastructure</h3>
                             <p class="lead mb-4 text-secondary fs-6">Work with modern hosting and infrastructure technologies to ensure high availability and reliability.</p>
-                            <a href='<?= base_url() ?>welcome/Jobs' class="btn btn-primary btn-premium">Apply Now &rarr;</a>
+                            <a href='<?= base_url() ?>Careers/Jobs' class="btn btn-primary btn-premium">Apply Now &rarr;</a>
                         </div>
                     </div>
                 </div>

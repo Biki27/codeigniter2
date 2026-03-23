@@ -28,9 +28,9 @@
 							Us</a></li>
 					<li class="nav-item"><a class="nav-link" href="<?= base_url() . 'Services'; ?>">Services</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="<?= base_url() . 'Careers'; ?>">Career</a>
+					<li class="nav-item"><a class="nav-link" href="<?= base_url() . 'Careers'; ?>">Careers</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" href="<?= base_url() . 'Contactus'; ?>">Contact
+					<li class="nav-item"><a class="nav-link" href="<?= base_url() . 'ContactUs'; ?>">Contact
 							Us</a>
 					</li>
 				</ul>
