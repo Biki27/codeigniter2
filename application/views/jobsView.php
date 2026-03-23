@@ -17,7 +17,7 @@
             
             <div class="row mb-4">
                 <div class="col-12">
-                    <a href="<?= base_url('welcome/Careers') ?>" class="text-decoration-none text-secondary fw-semibold back-btn d-inline-flex align-items-center">
+                    <a href="<?= base_url('Careers') ?>" class="text-decoration-none text-secondary fw-semibold back-btn d-inline-flex align-items-center">
                         <i class="fas fa-arrow-left me-2"></i> Back to Careers
                     </a>
                 </div>
