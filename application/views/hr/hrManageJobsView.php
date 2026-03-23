@@ -113,7 +113,7 @@
                                                     <i class="fas fa-edit"></i>
                                                 </button>
 
-                                                <a href="<?= base_url('index.php/Employee/deleteJob/' . $job->sejob_id) ?>"
+                                                <a href="<?= base_url('Employee/deleteJob/' . $job->sejob_id) ?>"
                                                     class="btn btn-sm btn-outline-danger rounded-circle action-btn"
                                                     onclick="return confirm('Are you sure you want to delete this job posting?')">
                                                     <i class="fas fa-trash"></i>

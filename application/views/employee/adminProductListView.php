@@ -26,7 +26,7 @@
             <!-- Page Title -->
             <div class="d-flex justify-content-between align-items-center mb-4">
                 <div></div>
-                <a href="<?= base_url('index.php/Employee/addProduct') ?>" class="btn btn-primary">
+                <a href="<?= base_url('Employee/addProduct') ?>" class="btn btn-primary">
                     <i class="fas fa-plus me-1"></i> Add Product
                 </a>
             </div>
@@ -78,12 +78,12 @@
                                         </td>
                                         <td class="text-center pe-4">
                                             <div class="d-flex justify-content-center gap-2">
-                                                <a href="<?= base_url('index.php/Employee/editProduct/' . $p->seprod_id) ?>"
+                                                <a href="<?= base_url('Employee/editProduct/' . $p->seprod_id) ?>"
                                                     class="btn btn-sm btn-outline-primary rounded-circle action-btn">
                                                     <i class="fas fa-edit"></i>
                                                 </a>
 
-                                                <a href="<?= base_url('index.php/Employee/deleteProduct/' . $p->seprod_id) ?>"
+                                                <a href="<?= base_url('Employee/deleteProduct/' . $p->seprod_id) ?>"
                                                     class="btn btn-sm btn-outline-danger rounded-circle action-btn"
                                                     onclick="return confirm('Delete this product?')">
                                                     <i class="fas fa-trash"></i>

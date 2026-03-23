@@ -60,7 +60,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <div class="table-container">
                         <div class="d-flex justify-content-between align-items-center mb-4">
                             <h5 class="fw-bold mb-0">Leave Request Actions</h5>
-                            <!-- <a href="<?= base_url('index.php/Employee/leaveRequests') ?>"
+                            <!-- <a href="<?= base_url('Employee/leaveRequests') ?>"
                                 class="btn btn-sm btn-outline-primary rounded-pill px-3">Manage All</a> -->
                         </div>
                         <div class="table-responsive">
@@ -114,13 +114,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                                 </td>
                                                 <td class="text-center">
                                                     <div class="d-flex justify-content-center gap-2">
-                                                        <a href="<?= base_url('index.php/Employee/updateLeaveStatus/' . $leave['seemrq_id'] . '/approved') ?>"
+                                                        <a href="<?= base_url('Employee/updateLeaveStatus/' . $leave['seemrq_id'] . '/approved') ?>"
                                                             class="btn btn-success rounded-circle d-flex align-items-center justify-content-center"
                                                             style="width: 40px; height: 40px; transition: all 0.3s ease;"
                                                             title="Approve">
                                                             <i class="fas fa-check"></i>
                                                         </a>
-                                                        <a href="<?= base_url('index.php/Employee/updateLeaveStatus/' . $leave['seemrq_id'] . '/rejected') ?>"
+                                                        <a href="<?= base_url('Employee/updateLeaveStatus/' . $leave['seemrq_id'] . '/rejected') ?>"
                                                             class="btn btn-danger rounded-circle d-flex align-items-center justify-content-center"
                                                             style="width: 40px; height: 40px; transition: all 0.3s ease;"
                                                             title="Reject">
@@ -173,7 +173,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <div class="py-3 text-center text-muted">No recent applications</div>
                             <?php endif; ?>
                         </div>
-                        <a href="<?= base_url('index.php/Employee/viewJobApplicants') ?>"
+                        <a href="<?= base_url('Employee/viewJobApplicants') ?>"
                             class="btn btn-primary w-100 mt-4 rounded-pill shadow-sm">Manage Applications</a>
                     </div>
                 </div>

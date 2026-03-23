@@ -72,15 +72,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="col-12">
             <div class="d-flex gap-3 justify-content-center flex-wrap">
-                <a href="<?= base_url() ?>index.php/Employee/EmployeeOverview" class="nav-section-btn"
+                <a href="<?= base_url() ?>Employee/EmployeeOverview" class="nav-section-btn"
                     id="overview-btn">
                     <i class="fas fa-home me-2"></i>Overview
                 </a>
-                <a href="<?= base_url() ?>index.php/Employee/EmployeeAttendence" class="nav-section-btn"
+                <a href="<?= base_url() ?>Employee/EmployeeAttendence" class="nav-section-btn"
                     id="attendance-btn">
                     <i class="fas fa-clock me-2"></i>Attendance
                 </a>
-                <a href="<?= base_url() ?>index.php/Employee/EmployeeRequest" class="nav-section-btn" id="requests-btn">
+                <a href="<?= base_url() ?>Employee/EmployeeRequest" class="nav-section-btn" id="requests-btn">
                     <i class="fas fa-paper-plane me-2"></i>Requests
                 </a>
             </div>

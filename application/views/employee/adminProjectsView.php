@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <!-- This section contains the status filter -->
                     <div class="col-md-3">
                         <select name="status" class="form-select border-0 shadow-sm"
-                            onchange="window.location.href='<?= base_url('index.php/Employee/viewProjects') ?>?status='+this.value">
+                            onchange="window.location.href='<?= base_url('Employee/viewProjects') ?>?status='+this.value">
                             <option value="">All Projects (<?= $total ?> Total)</option>
                             <option value="running" <?= ($this->input->get('status') == 'running') ? 'selected' : '' ?>>
                                 Running Projects (<?= $running ?> Active)</option>
@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </button>
                     </div> -->
                     <div class="col-md-2">
-                        <a href="<?= base_url('index.php/Employee/addProjectPage') ?>" class="btn btn-primary w-100">
+                        <a href="<?= base_url('Employee/addProjectPage') ?>" class="btn btn-primary w-100">
                             <i class="fas fa-plus me-1"></i>New Project
                         </a>
                     </div>

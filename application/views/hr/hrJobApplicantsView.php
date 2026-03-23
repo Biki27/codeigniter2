@@ -125,7 +125,7 @@
                                             </button>
 
                                             <?php if (strtolower($app->sejoba_state) == 'selected'): ?>
-                                                <a href="<?= base_url('index.php/Employee/RegisterEmployee?applicant_id=' . $app->sejoba_id) ?>"
+                                                <a href="<?= base_url('Employee/RegisterEmployee?applicant_id=' . $app->sejoba_id) ?>"
                                                     class="btn btn-sm btn-success rounded-pill px-3 shadow-sm d-flex align-items-center text-white text-decoration-none"
                                                     title="Convert to Employee">
                                                     <i class="fas fa-user-plus me-1"></i> Hire

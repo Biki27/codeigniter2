@@ -41,7 +41,7 @@
             <div class="form-body">
 
                 <form method="post"
-                    action="<?= isset($product) ? base_url('index.php/Employee/updateProduct/' . $product->seprod_id) : base_url('index.php/Employee/addProduct') ?>"
+                    action="<?= isset($product) ? base_url('Employee/updateProduct/' . $product->seprod_id) : base_url('Employee/addProduct') ?>"
                     enctype="multipart/form-data">
 
                     <input type="hidden" name="<?= $this->security->get_csrf_token_name(); ?>"

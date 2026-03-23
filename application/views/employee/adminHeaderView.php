@@ -34,31 +34,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <h5>Suropriyo Enterprise</h5>
         </div>
         <nav class="nav flex-column">
-            <a class="nav-link" href="<?= base_url() ?>index.php/Employee/Dashboard">
+            <a class="nav-link" href="<?= base_url() ?>Employee/Dashboard">
                 <i class="fas fa-chart-line"></i> Overview
             </a>
-            <a class="nav-link" href="<?= base_url() ?>index.php/Employee/viewEmployee">
+            <a class="nav-link" href="<?= base_url() ?>Employee/viewEmployee">
                 <i class="fas fa-users"></i> Employees
             </a>
-            <a class="nav-link" href="<?= base_url() ?>index.php/Employee/viewAttendance">
+            <a class="nav-link" href="<?= base_url() ?>Employee/viewAttendance">
                 <i class="fas fa-calendar-alt"></i> Attendance
             </a>
-            <!-- <a class="nav-link" href="<?= base_url() ?>index.php/Employee/viewJobApplicants">
+            <!-- <a class="nav-link" href="<?= base_url() ?>Employee/viewJobApplicants">
                 <i class="fas fa-calendar-alt"></i> JobApplicants
             </a> -->
-            <a class="nav-link" href="<?= base_url() ?>index.php/Employee/viewProjects">
+            <a class="nav-link" href="<?= base_url() ?>Employee/viewProjects">
                 <i class="fas fa-project-diagram"></i> Projects
             </a>
-            <a class="nav-link" href="<?= base_url() ?>index.php/Employee/RegisterEmployee">
+            <a class="nav-link" href="<?= base_url() ?>Employee/RegisterEmployee">
                 <i class="fas fa-user-plus"></i> Add Employee
             </a>
-            <a class="nav-link" href="<?= base_url() ?>index.php/Employee/addProjectPage">
+            <a class="nav-link" href="<?= base_url() ?>Employee/addProjectPage">
                 <i class="fas fa-plus"></i> Add Project
             </a>
-            <a class="nav-link" href="<?= base_url() ?>index.php/Employee/products">
+            <a class="nav-link" href="<?= base_url() ?>Employee/products">
                 <i class="fas fa-box"></i> Product
             </a>
-            <a class="nav-link" href="<?= base_url() ?>index.php/Employee/Logout">
+            <a class="nav-link" href="<?= base_url() ?>Employee/Logout">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </a>
         </nav>

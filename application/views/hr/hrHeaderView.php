@@ -26,25 +26,25 @@
             <h5 class="fw-bold text-primary">HR Portal</h5>
         </div>
         <nav class="nav flex-column">
-            <a class="nav-link" href="<?= base_url('index.php/Employee/Dashboard') ?>">
+            <a class="nav-link" href="<?= base_url('Employee/Dashboard') ?>">
                 <i class="fas fa-th-large me-2"></i> Overview
             </a>
-            <a class="nav-link" href="<?= base_url('index.php/Employee/viewEmployee') ?>">
+            <a class="nav-link" href="<?= base_url('Employee/viewEmployee') ?>">
                 <i class="fas fa-users-cog me-2"></i> Employees
             </a>
-            <a class="nav-link" href="<?= base_url('index.php/Employee/hrAttendance') ?>">
+            <a class="nav-link" href="<?= base_url('Employee/hrAttendance') ?>">
                 <i class="fas fa-calendar-check me-2"></i> Attendance
             </a>
-            <a class="nav-link" href="<?= base_url('index.php/Employee/viewJobApplicants') ?>">
+            <a class="nav-link" href="<?= base_url('Employee/viewJobApplicants') ?>">
                 <i class="fas fa-briefcase me-2"></i> Recruitment
             </a>
-            <a class="nav-link" href="<?= base_url('index.php/Employee/RegisterEmployee') ?>">
+            <a class="nav-link" href="<?= base_url('Employee/RegisterEmployee') ?>">
                 <i class="fas fa-user-plus me-2"></i> Add Employee
             </a>
-            <a class="nav-link" href="<?= base_url('index.php/Employee/viewJobs') ?>">
+            <a class="nav-link" href="<?= base_url('Employee/viewJobs') ?>">
                 <i class="fas fa-list-alt me-2"></i> Manage Jobs
             </a>
-            <a class="nav-link" href="<?= base_url('index.php/Employee/logout') ?>">
+            <a class="nav-link" href="<?= base_url('Employee/logout') ?>">
                 <i class="fas fa-sign-out-alt me-2"></i> Logout
             </a>
         </nav>

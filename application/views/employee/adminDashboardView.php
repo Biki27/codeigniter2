@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h5 class="card-title">Running Projects</h5>
               <div class="metric-number"><?= $projrunning ?></div>
               <button class="btn btn-view btn-sm"
-                onclick="window.location.href='<?= base_url('index.php/Employee/viewProjects?status=running') ?>'">
+                onclick="window.location.href='<?= base_url('Employee/viewProjects?status=running') ?>'">
                 View Details
               </button>
 
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h5 class="card-title">Pending Projects</h5>
               <div class="metric-number"><?= $projpending ?></div>
               <button class="btn btn-view btn-sm"
-                onclick="window.location.href='<?= base_url('index.php/Employee/viewProjects?status=pending') ?>'">
+                onclick="window.location.href='<?= base_url('Employee/viewProjects?status=pending') ?>'">
                 View Details
               </button>
 
@@ -70,7 +70,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               <h5 class="card-title">Projects Completed</h5>
               <div class="metric-number"><?= $projcompleted ?></div>
               <button class="btn btn-view btn-sm"
-                onclick="window.location.href='<?= base_url('index.php/Employee/viewProjects?status=completed') ?>'">
+                onclick="window.location.href='<?= base_url('Employee/viewProjects?status=completed') ?>'">
                 View Details
               </button>
             </div>
