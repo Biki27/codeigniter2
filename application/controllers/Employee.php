@@ -761,6 +761,7 @@ class Employee extends CI_Controller
         }
         redirect('Employee/viewEmployee');
     }
+    // Employee Overview
     function EmployeeOverview()
     {
         if (
@@ -800,6 +801,7 @@ class Employee extends CI_Controller
 
             $this->load->view('employee/employeeHeaderView');
             $this->load->view('employee/employeeOverView', $data);
+            $this->load->view('employee/employeeFooterView');
 
         } else {
 
