@@ -265,46 +265,86 @@ class Employee extends CI_Controller
     }
 
     // AdminAttendence and also hr attendance
+    // function viewAttendance()
+    // {
+    //     $access = $this->session->userdata('accesslevel');
+    //     // Ensure both ADMIN and HR can access
+    //     if ($this->session->userdata('status') == 'active' && ($access == 'ADMIN' || $access == 'HR')) {
+
+    //         $this->load->model('AttendanceModel');
+    //         $this->load->model('EmployeeModel');
+
+    //         $empid_session = $this->session->userdata('empid');
+
+    //         // 1. ALWAYS fetch today's attendance for the logged-in user for the top card
+    //         $data['todayAttendance'] = $this->AttendanceModel->get_today_login_logout($empid_session);
+
+    //         $postd = $this->input->post();
+    //         if ($postd) {
+    //             $postdata = $this->security->xss_clean($postd);
+    //             $s_id = trim($postdata['searchempid'] ?? '');
+    //             $start = $postdata['startdate'] ?? '';
+    //             $end = $postdata['enddate'] ?? '';
+    //             // Search logic
+    //             $list = $this->AttendanceModel->find_empid_with_daterange($s_id, $start, $end);
+    //         } else {
+    //             // 2. DEFAULT: Load all attendance logs for the table on initial load
+    //             $list = $this->AttendanceModel->get_attendance_of_all_employee();
+    //         }
+
+    //         $data['atten'] = $list;
+
+    //         // 3. Load the correct header based on role
+    //         $header = ($access == 'HR') ? 'hr/hrHeaderView' : 'employee/adminHeaderView';
+
+    //         $this->load->view($header);
+    //         $this->load->view('employee/adminAttendanceView', $data);
+
+    //     } else {
+    //         $this->session->sess_destroy();
+    //         redirect('Employee/Login');
+    //     }
+    // } 
+
     function viewAttendance()
-    {
-        $access = $this->session->userdata('accesslevel');
-        // Ensure both ADMIN and HR can access
-        if ($this->session->userdata('status') == 'active' && ($access == 'ADMIN' || $access == 'HR')) {
+{
+    $access = $this->session->userdata('accesslevel');
+    if ($this->session->userdata('status') == 'active' && ($access == 'ADMIN' || $access == 'HR')) {
 
-            $this->load->model('AttendanceModel');
-            $this->load->model('EmployeeModel');
+        $this->load->model('AttendanceModel');
+        $empid_session = $this->session->userdata('empid');
 
-            $empid_session = $this->session->userdata('empid');
+        // 1. Fetch the HR/Admin's OWN today's log for the top card
+        $todayAttendance = $this->AttendanceModel->get_today_login_logout($empid_session);
 
-            // 1. ALWAYS fetch today's attendance for the logged-in user for the top card
-            $data['todayAttendance'] = $this->AttendanceModel->get_today_login_logout($empid_session);
-
-            $postd = $this->input->post();
-            if ($postd) {
-                $postdata = $this->security->xss_clean($postd);
-                $s_id = trim($postdata['searchempid'] ?? '');
-                $start = $postdata['startdate'] ?? '';
-                $end = $postdata['enddate'] ?? '';
-                // Search logic
-                $list = $this->AttendanceModel->find_empid_with_daterange($s_id, $start, $end);
-            } else {
-                // 2. DEFAULT: Load all attendance logs for the table on initial load
-                $list = $this->AttendanceModel->get_attendance_of_all_employee();
-            }
-
-            $data['atten'] = $list;
-
-            // 3. Load the correct header based on role
-            $header = ($access == 'HR') ? 'hr/hrHeaderView' : 'employee/adminHeaderView';
-
-            $this->load->view($header);
-            $this->load->view('employee/adminAttendanceView', $data);
-
+        $postd = $this->input->post();
+        if ($postd) {
+            $postdata = $this->security->xss_clean($postd);
+            $s_id = trim($postdata['searchempid'] ?? '');
+            $start = $postdata['startdate'] ?? '';
+            $end = $postdata['enddate'] ?? '';
+            // 2. Search results for the table below
+            $list = $this->AttendanceModel->find_empid_with_daterange($s_id, $start, $end);
         } else {
-            $this->session->sess_destroy();
-            redirect('Employee/Login');
+            // 3. Default list for the table below
+            $list = $this->AttendanceModel->get_attendance_of_all_employee();
         }
+
+        // 4. Combine both for the View
+        $data = array(
+            'atten' => $list,
+            'todayAttendance' => $todayAttendance 
+        );
+
+        $header = ($access == 'HR') ? 'hr/hrHeaderView' : 'employee/adminHeaderView';
+        $this->load->view($header);
+        $this->load->view('employee/adminAttendanceView', $data);
+
+    } else {
+        $this->session->sess_destroy();
+        redirect('Employee/Login');
     }
+}
     // Admin view fetch job applicants details
     public function getApplicantDetails($id)
     {

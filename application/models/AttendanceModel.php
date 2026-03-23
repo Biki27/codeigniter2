@@ -11,12 +11,34 @@ class AttendanceModel extends CI_Model
         $this->db->from('seemployeeloginlog as log');
         $this->db->join('seempdetails as emp', 'log.seemp_logempid = emp.seempd_empid', 'left');
     }
+     function get_attendance_of_all_employee()
+{
+    $this->_get_attendance_with_names();
+    $this->db->order_by('log.seemp_logdate', 'DESC'); // Latest date first
+    $this->db->order_by('log.seemp_logintime', 'DESC'); // Latest login time first
+    return $this->db->get()->result();
+}
 
-    function get_attendance_of_all_employee()
-    {
-        $this->_get_attendance_with_names();
-        return $this->db->get()->result();
+function find_empid_with_daterange($empid, $start, $end)
+{
+    $this->_get_attendance_with_names();
+
+    if (!empty($empid)) {
+        $this->db->where('log.seemp_logempid', $empid);
     }
+    if (!empty($start)) {
+        $this->db->where('log.seemp_logdate >=', $start);
+    }
+    if (!empty($end)) {
+        $this->db->where('log.seemp_logdate <=', $end);
+    }
+
+    // Add sorting here as well for search results
+    $this->db->order_by('log.seemp_logdate', 'DESC');
+    $this->db->order_by('log.seemp_logintime', 'DESC');
+
+    return $this->db->get()->result();
+}
 
     function find_attendance_for_employee_id($empid = '')
     {
@@ -49,32 +71,42 @@ class AttendanceModel extends CI_Model
         return $this->db->get()->result();
     }
 
-    function find_empid_with_daterange($empid, $start, $end)
-    {
-        $this->_get_attendance_with_names();
+    // function find_empid_with_daterange($empid, $start, $end)
+    // {
+    //     $this->_get_attendance_with_names();
 
-        if (!empty($empid)) {
-            $this->db->where('log.seemp_logempid', $empid);
-        }
-        if (!empty($start)) {
-            $this->db->where('log.seemp_logdate >=', $start);
-        }
-        if (!empty($end)) {
-            $this->db->where('log.seemp_logdate <=', $end);
-        }
+    //     if (!empty($empid)) {
+    //         $this->db->where('log.seemp_logempid', $empid);
+    //     }
+    //     if (!empty($start)) {
+    //         $this->db->where('log.seemp_logdate >=', $start);
+    //     }
+    //     if (!empty($end)) {
+    //         $this->db->where('log.seemp_logdate <=', $end);
+    //     }
 
-        return $this->db->get()->result();
-    }
+    //     return $this->db->get()->result();
+    // }
 
+    // function get_today_login_logout($empid)
+    // {
+    //     $today = date('Y-m-d');
+    //     return $this->db
+    //         ->where('seemp_logempid', $empid)
+    //         ->where('seemp_logdate', $today)
+    //         ->get('seemployeeloginlog')
+    //         ->row();
+    // }
     function get_today_login_logout($empid)
-    {
-        $today = date('Y-m-d');
-        return $this->db
-            ->where('seemp_logempid', $empid)
-            ->where('seemp_logdate', $today)
-            ->get('seemployeeloginlog')
-            ->row();
-    }
+{
+    $today = date('Y-m-d');
+    return $this->db
+        ->where('seemp_logempid', $empid)
+        ->where('seemp_logdate', $today)
+        ->order_by('seemp_logid', 'DESC') // Added: Always get the latest session for the top card
+        ->get('seemployeeloginlog')
+        ->row();
+}
     // for HR dashboard
     public function get_present_today_count() 
     {
